@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience - Shah Faisal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+    <div class="background-3d">
+        <div class="sphere sphere-1"></div>
+        <div class="sphere sphere-2"></div>
+        <div class="sphere sphere-3"></div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">Shah Faisal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link btn-3d" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link btn-3d" href="/projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link btn-3d active" href="/experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link btn-3d" href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="experience-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 text-light animate__animated animate__fadeIn">Professional Experience</h2>
+            <div class="timeline">
+                {% for exp in experiences %}
+                <div class="timeline-item animate__animated animate__fadeInUp" style="animation-delay: {{ loop.index0 * 0.2 }}s;">
+                    <div class="timeline-content">
+                        <h5 class="timeline-title">{{ exp.company }}</h5>
+                        <h6 class="timeline-subtitle">{{ exp.role }}</h6>
+                        <p class="timeline-desc">{{ exp.desc }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <h2 class="mt-5 text-center text-light animate__animated animate__fadeIn">Technical Skills</h2>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>Computer Vision:</strong> Object Detection, OCR, Face Recognition, Pose Estimation</li>
+                        <li class="list-group-item"><strong>Deep Learning:</strong> CNNs, RNNs, GANs, Transformers (ViT, Swin)</li>
+                        <li class="list-group-item"><strong>ML & Data Science:</strong> Feature Engineering, Predictive Modeling, NLP</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>Programming:</strong> Python, TensorFlow, PyTorch, OpenCV, Keras</li>
+                        <li class="list-group-item"><strong>Big Data & Cloud:</strong> AWS, GCP, Azure, Spark</li>
+                        <li class="list-group-item"><strong>Visualization:</strong> Tableau, Power BI, Matplotlib</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 class="mt-5 text-center text-light animate__animated animate__fadeIn">Top AI Models & Frameworks</h2>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>Models:</strong> YOLO (v8, NAS), Faster R-CNN, ResNet</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>Models:</strong> ViT, GANs, DeepSORT</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>Libraries:</strong> OpenCV, Detectron2, MMDetection, Albumentations</li>
+                        <li class="list-group-item"><strong>Data Processing:</strong> NumPy, Pandas, Scikit-Learn</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</body>
+</html>
